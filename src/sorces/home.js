@@ -49,22 +49,10 @@ function Home() {
     }
 
     const [show, setShow] = useState(false)
-
-    const close = () => {
-        setShow(false)
-    }
-    const handleShow = () => {
-        setShow(true)
-    }
-
     const [show2, setShow2] = useState(false)
-    const handle2 = () => {
-        setShow2(true)
-    }
-    const handleClose2 = () => {
-        setShow2(false)
-    }
 
+    const handleClose = () => setShow(false)
+    const handleClose2 = () => setShow2(false)
 
     return (
         <>
@@ -108,60 +96,8 @@ function Home() {
                                 <h4>Event Management</h4>
                             </div>
                             <div className='head-btn' >
-                                <p onClick={handleShow}> Sign In
-                                    <Modal show={show}>
-                                        <Modal.Header>
-                                            <Modal.Title>Sign In</Modal.Title>
-                                        </Modal.Header>
-                                        <Modal.Body>
-                                            <>
-                                                <div className='body-detail'>
-                                                    <div className='inpt-1' >
-                                                        <input type={'email'} placeholder='Enter Your Email' />
-                                                    </div>
-                                                    <div className='inpt-2'>
-                                                        <input type={'password'} placeholder='Enter Your Password' />
-                                                    </div>
-                                                </div>
-                                            </>
-                                        </Modal.Body>
-                                        <Modal.Footer>
-                                            <Button variant="primary" onClick={close} >Save</Button>
-                                        </Modal.Footer>
-                                    </Modal>
-
-                                </p>
-                                <p onClick={handle2}> Sign Up
-                                    <Modal show={show2} onExit={!setShow2} onHide={handleClose2}>
-                                        <Modal.Header>
-                                            <Modal.Title>Sign In</Modal.Title>
-                                        </Modal.Header>
-                                        <Modal.Body>
-                                            <div className='body-detail'>
-                                                <div className='inpt-1' >
-                                                    <input type={'email'} placeholder='Enter Your Email' />
-                                                </div>
-                                                <div className='inpt-2'>
-                                                    <input type={'password'} placeholder='Enter Your Password' />
-                                                </div>
-                                                <div className='inpt-2'>
-                                                    <input type={'password'} placeholder='Re-Enter Your Password' />
-                                                </div>
-                                                <div className='inpt-2'>
-                                                    <input type={'number'} placeholder='Enter Your Phone Number' />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <p>Already have an accounct?</p>
-                                            </div>
-                                        </Modal.Body>
-                                        <Modal.Footer>
-                                            <button className="btn  bg-warning" onClick={handleClose2} >Save</button>
-                                            <button className='btn bg-success' onClick={handleClose2} >Sign In</button>
-                                        </Modal.Footer>
-                                    </Modal>
-
-                                </p>
+                                <p onClick={() => setShow(true)}> Sign In</p>
+                                <p onClick={() => setShow2(true)}> Sign Up</p>
                             </div>
                         </div>
                         <div className='head-2'>
@@ -348,6 +284,54 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+            <Modal size="md" show={show} onHide={handleClose}>
+                <Modal.Header>
+                    <Modal.Title>Sign In</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className='body-detail'>
+                        <div className='inpt-1' >
+                            <input type={'email'} placeholder='Enter Your Email' />
+                        </div>
+                        <div className='inpt-2'>
+                            <input type={'password'} placeholder='Enter Your Password' />
+                        </div>
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={handleClose} >Save</Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Modal size="md" centered show={show2} onHide={handleClose2}>
+                <Modal.Header>
+                    <Modal.Title>Sign In</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className='body-detail'>
+                        <div className='inpt-1' >
+                            <input type={'email'} placeholder='Enter Your Email' />
+                        </div>
+                        <div className='inpt-2'>
+                            <input type={'password'} placeholder='Enter Your Password' />
+                        </div>
+                        <div className='inpt-2'>
+                            <input type={'password'} placeholder='Re-Enter Your Password' />
+                        </div>
+                        <div className='inpt-2'>
+                            <input type={'number'} placeholder='Enter Your Phone Number' />
+                        </div>
+                    </div>
+                    <div>
+                        <p>Already have an accounct?</p>
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <button className="btn  bg-warning" onClick={handleClose2} >Save</button>
+                    <button className='btn bg-success' onClick={handleClose2} >Sign In</button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }

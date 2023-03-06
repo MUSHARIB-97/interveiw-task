@@ -69,6 +69,14 @@
     width: 100%;
 }
 
+.main .slider-body .text .head-1 .head-btn p:hover {
+    background-color: rgba(17, 12, 12, 0.5);
+    font-size: x-large;
+    transition: all .50s;
+    border: 3px solid #c65102;
+    cursor: pointer;
+}
+
 .main .slider-body .text .head-1 .heading {
     font-size: x-large;
     font-weight: 400;
@@ -383,19 +391,9 @@
     /* margin-left: 1%; */
 }
 
-.modal {
-    width: 20vw;
-    height: 15vh;
-    background-color: rgba(12, 7, 7, 0.5);
-}
 
-.modal .modal-body .body-detail {
-    /* text-align: center; */
-    /* width: 100%; */
-}
-
-.modal .modal-body .body-detail .inpt-1 input,
-.modal .modal-body .body-detail .inpt-2 input {
+.body-detail .inpt-1 input,
+.body-detail .inpt-2 input {
     width: 100%;
     margin-top: 5%;
     border: 3px solid #c65102;
